@@ -1,9 +1,10 @@
 # Create EC2 Instance
 
 resource "aws_instance" "sandy" {
+  count = var.az_count
   ami = var.ec2_ami
   instance_type = var.ec2_instance_type
-  subnet_id = aws_subnet.public.id
+  subnet_id = aws_subnet.public[count.index].id
   vpc_security_group_ids = [aws_security_group.sandbox.id]
   associate_public_ip_address = var.associate_public_ip_address
   source_dest_check = false
