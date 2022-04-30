@@ -32,7 +32,7 @@ variable "ec2_ami" {
 
 variable "office_cidr_block" {
     description = "office cidr block"
-    default = "0.0.0.0/0"
+    default = ["0.0.0.0/0"]
 }
 
 variable "aws_access_key" {
