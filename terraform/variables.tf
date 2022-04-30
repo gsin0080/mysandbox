@@ -34,3 +34,11 @@ variable "office_cidr_block" {
     description = "office cidr block"
     default = "0.0.0.0/0"
 }
+
+variable "aws_access_key" {
+    description = "Use your aws access key"
+}
+
+variable "aws_secret_key" {
+    description = "Use your aws secret key"
+}
