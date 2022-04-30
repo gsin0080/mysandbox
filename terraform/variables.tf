@@ -29,3 +29,8 @@ variable "ec2_ami" {
     description = "AMI for EC2 OS"
     default = "ami-0b7dcd6e6fd797935"
 }
+
+variable "office_cidr_block" {
+    description = "office cidr block"
+    default = "0.0.0.0/0"
+}
