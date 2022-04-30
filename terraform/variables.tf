@@ -30,6 +30,35 @@ variable "ec2_ami" {
     default = "ami-0b7dcd6e6fd797935"
 }
 
+variable "associate_public_ip_address" {
+  description = "Associate a public IP address to the EC2 instance"
+  default     = true
+}
+
+variable "root_volume_size" {
+  description = "Volume size of root volume of Linux Server"
+  default = 20
+}
+
+variable "linux_data_volume_size" {
+  type        = number
+  description = "Volume size of data volume of Linux Server"
+  default = 10
+}
+
+variable "linux_root_volume_type" {
+  type        = string
+  description = "Volume type of root volume of Linux Server."
+  default     = "gp2"
+}
+
+variable "linux_data_volume_type" {
+  type        = string
+  description = "Volume type of data volume of Linux Server"
+  default     = "gp2"
+}
+
+
 variable "office_cidr_block" {
     description = "office cidr block"
     default = ["0.0.0.0/0"]
