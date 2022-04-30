@@ -21,8 +21,8 @@ resource "aws_security_group" "sandbox" {
 
     # Allow access to Nginx  
     ingress {
-        from_port = app_port
-        to_port = app_port
+        from_port = var.app_port
+        to_port = var.app_port
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
