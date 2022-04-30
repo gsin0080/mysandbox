@@ -17,14 +17,20 @@ resource "aws_instance" "sandy" {
         volume_type = var.root_volume_type
         delete_on_termination = true
         encrypted = true
+        tags = {
+            FileSystem = "/root"
+        }
     }
     # extra disk
     ebs_block_device {
-        device_name = "/dev/xvda"
+        device_name = "/dev/xvdba"
         volume_size = var.data_volume_size
         volume_type = var.data_volume_type
         encrypted = true
         delete_on_termination = true
+        tags = {
+            FileSystem = "/data"
+        }
     }
     
     tags = {
