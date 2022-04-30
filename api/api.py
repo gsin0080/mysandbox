@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, abort, make_response, request, Response
-import json
 
 api = Flask(__name__)
 log = 'resource.log'
@@ -16,8 +15,7 @@ def get_value(text):
             record['key'] = count
             record['value'] = line
             results.append(record)
-    resultsJson = json.dumps(results)
-    return jsonify({'results': resultsJson})
+    return jsonify({'results': results})
     
 @api.route('/')
 def index():
