@@ -7,10 +7,25 @@ variable "aws_region" {
 
 variable "cidr_block" {
     description = "VPC cidr block"
-    default = "10.0.0.0/24"
+    default = "10.0.0.0/16"
 }
 
 variable "app_port" {
     description = "Application port"
-    defualt = "80"
+    default = "80"
+}
+
+variable "az_count" {
+    description = "Number of AZs to cover in a given region"
+    default = 1
+}
+
+variable "ec2_instance_type" {
+    description = "EC2 instance type"
+    default = "t2.micro"
+}
+
+variable "ec2_ami" {
+    description = "AMI for EC2 OS"
+    default = "ami-0b7dcd6e6fd797935"
 }
