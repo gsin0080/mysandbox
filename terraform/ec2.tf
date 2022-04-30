@@ -13,16 +13,16 @@ resource "aws_instance" "sandy" {
   
   # root disk
   root_block_device {
-    volume_size = var.linux_root_volume_size
-    volume_type = var.linux_root_volume_type
+    volume_size = var.root_volume_size
+    volume_type = var.root_volume_type
     delete_on_termination = true
     encrypted = true
   }
   # extra disk
   ebs_block_device {
     device_name = "/dev/xvda"
-    volume_size = var.linux_data_volume_size
-    volume_type = var.linux_data_volume_type
+    volume_size = var.data_volume_size
+    volume_type = var.data_volume_type
     encrypted = true
     delete_on_termination = true
   }

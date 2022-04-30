@@ -40,19 +40,19 @@ variable "root_volume_size" {
   default = 20
 }
 
-variable "linux_data_volume_size" {
+variable "data_volume_size" {
   type        = number
   description = "Volume size of data volume of Linux Server"
   default = 10
 }
 
-variable "linux_root_volume_type" {
+variable "root_volume_type" {
   type        = string
   description = "Volume type of root volume of Linux Server."
   default     = "gp2"
 }
 
-variable "linux_data_volume_type" {
+variable "data_volume_type" {
   type        = string
   description = "Volume type of data volume of Linux Server"
   default     = "gp2"
