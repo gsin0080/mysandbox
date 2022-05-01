@@ -29,4 +29,19 @@ sudo apt-get update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-compose
 
 sudo apt-get -y install python3-pip
-sudo pip3 install -r /tmp/sandy/api/requirements.txt
+
+pip3 install -r /tmp/sandy/api/requirements.txt
+sudo cp -r /tmp/sandy/api /opt/sandy/api
+sudo cp -r /tmp/sandy/nginx /opt/sandy/nginx
+sudo chown -R ubuntu:ubuntu /opt/sandy
+
+
+cd /opt/sandy/nginx
+sudo docker compose up -d
+
+nohup python3 api.py &
+
+sudo crontab -l > cron_bkp
+sudo echo "* * * * * /opt/sandy/api/healthcheck.sh >> /opt/sandy/api/healthcheck.sh 2>&1" >> cron_bkp
+sudo crontab cron_bkp
+sudo rm cron_bkp

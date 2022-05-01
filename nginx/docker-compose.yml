@@ -5,12 +5,6 @@ services:
     container_name: sandy-reverse
     hostname: sandy-reverse
     image: nginx
-    ports:
-      - 80:80
-      - 443:443
     volumes:
-      - <path/to/your/config>:/etc/nginx
-      - <path/to/your/certs>:/etc/ssl/private
-    extra_hosts:
-        - "host.docker.internal:host-gateway"
-  
+      - /opt/sandy/nginx/conf.d:/etc/nginx/conf.d
+    network_mode: host
