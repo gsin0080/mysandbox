@@ -52,13 +52,18 @@ instance_public_ip_addr = [
 ## Step 6
 To access the Homepage 
 ```
-http://13.211.106.16
+http://<instance_public_ip_addr>
 ```
 To access the search function
 ```
-http://13.211.106.16/log/<your_search_string>
+http://<instance_public_ip_addr>/log/<your_search_string>
+
+example:
+http://13.211.106.161/log/sandy
 ```
 It will return an JSON objects with all the matched results
+
+
 
 Format of the resource.log 
 ```
