@@ -11,3 +11,6 @@ services:
     volumes:
       - <path/to/your/config>:/etc/nginx
       - <path/to/your/certs>:/etc/ssl/private
+    extra_hosts:
+        - "host.docker.internal:host-gateway"
+  

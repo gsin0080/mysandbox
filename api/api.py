@@ -11,6 +11,7 @@ def get_value(text):
     count = 0
     for line in logfile:
         if text in line:
+            record = {}
             count += 1
             record['key'] = count
             record['value'] = line
