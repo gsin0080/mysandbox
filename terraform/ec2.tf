@@ -9,7 +9,7 @@ resource "aws_instance" "sandy" {
     associate_public_ip_address = var.associate_public_ip_address
     source_dest_check = false
     key_name = aws_key_pair.key_pair.key_name
-    #user_data = file("sandy-user-data.sh")
+    user_data = file("sandy-user-data.sh")
     
     # root disk
     root_block_device {
