@@ -39,9 +39,9 @@ sudo chown -R ubuntu:ubuntu /opt/sandy
 cd /opt/sandy/nginx
 sudo docker compose up -d
 
-nohup python3 api.py &
+nohup python3 /opt/sandy/api/api.py &
 
 sudo crontab -l > cron_bkp
-sudo echo "* * * * * /opt/sandy/api/healthcheck.sh >> /opt/sandy/api/healthcheck.sh 2>&1" >> cron_bkp
+sudo echo "* * * * * /opt/sandy/api/healthcheck.sh >> /opt/sandy/api/resource.log 2>&1" >> cron_bkp
 sudo crontab cron_bkp
 sudo rm cron_bkp

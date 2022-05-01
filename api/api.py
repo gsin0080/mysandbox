@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, abort, make_response, request, Response
 
 api = Flask(__name__)
-log = '/tmp/resource.log'
+log = '/opt/sandy/api/resource.log'
 
 @api.route('/log/<text>', methods=['GET'])
 def get_value(text):
