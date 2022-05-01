@@ -10,7 +10,7 @@ sudo ufw default allow outgoing
 sudo ufw allow ssh
 sudo ufw allow http
 sudo ufw allow https
-sudo ufw --enforce enable 
+sudo ufw --force enable 
 
 sudo git clone https://github.com/gsin0080/mysandbox.git /tmp/sandy
 
@@ -47,3 +47,5 @@ sudo crontab -l -u ubuntu > cron_bkp
 sudo echo "* * * * * /opt/sandy/api/healthcheck.sh >> /opt/sandy/api/resource.log 2>&1" >> cron_bkp
 sudo crontab -u ubuntu cron_bkp
 sudo rm cron_bkp
+
+sudo rm -rf /tmp/sandy
