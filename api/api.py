@@ -1,12 +1,12 @@
 from flask import Flask, jsonify, abort, make_response, request, Response
 
 api = Flask(__name__)
-log = 'resource.log'
+log = '/tmp/resource.log'
 
 @api.route('/log/<text>', methods=['GET'])
 def get_value(text):
     results = []
-    with open('resource.log') as f:
+    with open(log) as f:
         logfile = f.readlines()
     count = 0
     for line in logfile:
