@@ -58,12 +58,11 @@ To access the search function
 ```
 http://<instance_public_ip_addr>/log/<your_search_string>
 
-example:
-http://13.211.106.161/log/sandy
+Example:
+http://13.211.106.161/log/hi
+{"results":[{"key":1,"value":"hihihihihih\n"},{"key":2,"value":"hihihi\n"},{"key":3,"value":"hi\n"}]}
 ```
 It will return an JSON objects with all the matched results
-
-
 
 Format of the resource.log 
 ```
