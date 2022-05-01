@@ -12,7 +12,7 @@ sudo ufw allow http
 sudo ufw allow https
 sudo ufw --enforce enable 
 
-sudo git clone https://gsin0080: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@github.com/gsin0080/mysandbox.git /tmp/sandy
+sudo git clone https://github.com/gsin0080/mysandbox.git /tmp/sandy
 
 sudo apt-get update
 sudo apt-get -y remove docker docker-engine docker.io containerd runc
