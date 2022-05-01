@@ -6,12 +6,12 @@ This has been tested on my linux box.
 
 Step 1.
 ```
-git clone 
+$ git clone https://github.com/gsin0080/mysandbox.git .
 ```
 
 Step 2.
 ```
-cd mysandbox\terraform
+cd terraform
 export AWS_ACCESS_KEY_ID=<Your_AWS_Access_Key>
 export AWS_SECRET_ACCESS_KEY=<Your_AWS_Secret_Access_Key>
 export AWS_DEFAULT_REGION=<Your_AWS_Region>
@@ -19,7 +19,8 @@ export AWS_DEFAULT_REGION=<Your_AWS_Region>
 
 Step 3.
 ```
-terraform plan
+$ terraform init
+$ terraform plan
 ```
 
 Step 4.
