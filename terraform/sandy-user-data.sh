@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 sudo mkdir /opt/sandy
 sudo mkfs -t ext4 /dev/xvdba
 sudo bash -c 'echo "/dev/xvdba /opt/sandy ext4 defaults 0 0" >> /etc/fstab'
@@ -35,13 +35,15 @@ sudo cp -r /tmp/sandy/api /opt/sandy/api
 sudo cp -r /tmp/sandy/nginx /opt/sandy/nginx
 sudo chown -R ubuntu:ubuntu /opt/sandy
 
-
 cd /opt/sandy/nginx
 sudo docker compose up -d
 
-nohup python3 /opt/sandy/api/api.py &
+sudo chmod +x /opt/sandy/api/api.py
+sudo chmod +x /opt/sandy/api/healthcheck.sh
 
-sudo crontab -l > cron_bkp
+su ubuntu -s /bin/bash -c "nohup python3 /opt/sandy/api/api.py &"
+
+sudo crontab -l -u ubuntu > cron_bkp
 sudo echo "* * * * * /opt/sandy/api/healthcheck.sh >> /opt/sandy/api/resource.log 2>&1" >> cron_bkp
-sudo crontab cron_bkp
+sudo crontab -u ubuntu cron_bkp
 sudo rm cron_bkp
