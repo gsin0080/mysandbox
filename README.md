@@ -4,39 +4,69 @@ This repo contains demo terraform script to automate the process of creating an 
 
 This has been tested on my linux box.
 
-Step 1.
+## Step 1
+Clone the code to your machine 
 ```
-$ git clone https://github.com/gsin0080/mysandbox.git .
+git clone https://github.com/gsin0080/mysandbox.git 
 ```
 
-Step 2.
+
+## Step 2
+Export the AWS credentials and default region (feel setup the aws profile for your user account)
 ```
-cd terraform
 export AWS_ACCESS_KEY_ID=<Your_AWS_Access_Key>
 export AWS_SECRET_ACCESS_KEY=<Your_AWS_Secret_Access_Key>
 export AWS_DEFAULT_REGION=<Your_AWS_Region>
 ```
 
-Step 3.
+## Step 3
+Initialize the work directory
 ```
-$ terraform init
-$ terraform plan
+cd mysandbox/terraform
+terraform init
 ```
 
-Step 4.
+## Step 4
+Create a plan
+```
+terraform plan
+```
+
+## Step 5
+Time to build the AWS stack
 ```
 terraform apply --auto-approve
 ```
 
-Step 5.
+Example of the output
+```
+Apply complete! Resources: 9 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+instance_public_ip_addr = [
+  "13.211.106.161",
+]
 ```
 
+## Step 6
+To access the Homepage 
+```
+http://13.211.106.16
+```
+To access the search function
+```
+http://13.211.106.16/log/<your_search_string>
+```
+It will return an JSON objects with all the matched results
+
+Format of the resource.log 
+```
+<timestamp>    <result_of_the_docker_stats_command>
 ```
 
-
-Step 6.
+## Finally
 In order to terminate the AWS components
 ```
-cd mysandbox\terraform
 terraform destroy
 ```
